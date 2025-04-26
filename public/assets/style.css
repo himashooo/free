@@ -1,0 +1,78 @@
+body {
+  font-family: 'Arial', sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.75);
+  margin: 30px auto;
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.logo {
+  width: 100px;
+  margin-bottom: 15px;
+}
+
+input, button {
+  padding: 10px;
+  margin: 10px 0;
+  width: 90%;
+  border-radius: 5px;
+  border: none;
+}
+
+button {
+  background-color: #ffcc00;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ffc107;
+}
+
+.note {
+  font-size: 0.9em;
+  color: #00ff00;
+  margin-top: 10px;
+}
+
+.social-icons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.social-icons a img {
+  width: 40px;
+  margin: 0 15px;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: drop-shadow(0 0 5px #fff);
+  border-radius: 50%;
+}
+
+.social-icons a img:hover {
+  transform: scale(1.3) rotate(5deg);
+  filter: drop-shadow(0 0 10px #ff0077) brightness(1.3);
+}
+body {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+@media screen and (max-width: 600px) {
+  body {
+    background-size: cover;
+    background-position: center;
+  }
+}

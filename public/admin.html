@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    table {
+      margin-top: 20px;
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid white;
+      padding: 8px;
+    }
+    input {
+      padding: 10px;
+      margin: 10px;
+      width: 300px;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      padding: 10px;
+      border: none;
+      background: crimson;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    img {
+      width: 100px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Admin Panel 🔒</h1>
+  <input type="password" id="password" placeholder="Enter Admin Password">
+  <button onclick="fetchData()">Login</button>
+
+  <div id="dataSection"></div>
+
+  <script>
+    function fetchData() {
+      const password = document.getElementById('password').value;
+      fetch(`/api/data?password=${password}`)
+        .then(res => {
+          if (!res.ok) throw new Error('Wrong Password');
+          return res.json();
+        })
+        .then(data => {
+          let html = "<h2>Total Registrations: " + data.length + "</h2>";
+          html += "<table><tr><th>#</th><th>UID</th><th>Player Name</th><th>Screenshot</th></tr>";
+          data.forEach((entry, index) => {
+            html += `<tr>
+                      <td>${index + 1}</td>
+                      <td>${entry.uid}</td>
+                      <td>${entry.playerName}</td>
+                      <td><img src="/uploads/${entry.screenshot}" alt="Screenshot"></td>
+                    </tr>`;
+          });
+          html += "</table>";
+          document.getElementById('dataSection').innerHTML = html;
+        })
+        .catch(err => alert(err.message));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body style="background-image: url('/assets/bg.jpg'); background-size: cover; background-position: center;">
+
+  <div class="container">
+    <h1>📊 Live Leaderboard</h1>
+    <table border="1" style="width:100%; background:white; color:black; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th>UID</th>
+          <th>Player Name</th>
+          <th>Screenshot</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboard"></tbody>
+    </table>
+  </div>
+
+  <script>
+    fetch('/api/players')
+      .then(res => res.json())
+      .then(data => {
+        const tbody = document.getElementById("leaderboard");
+        data.forEach(player => {
+          const row = `<tr>
+            <td>${player.uid}</td>
+            <td>${player.playerName}</td>
+            <td><img src="/uploads/${player.screenshot}" width="100"/></td>
+          </tr>`;
+          tbody.innerHTML += row;
+        });
+      });
+  </script>
+</body>
+</html>

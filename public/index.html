@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Free Fire Tournament</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body style="background-image: url('/assets/bg.jpg'); background-size: cover; background-position: center;">
+
+  <div class="container">
+    <img src="/assets/logo.png" alt="FF Logo" class="logo">
+
+    <h1>🔥 Battle for Glory — Kill to Earn 💸</h1>
+    <p class="tagline">Join the fight and win cash! Entry ₹10 | ₹5 per Kill | BOOYAH ₹60</p>
+
+    <div id="countdown">Loading match timer...</div>
+
+    <h3>Scan to Pay</h3>
+    <img src="/assets/qr.png" width="200" alt="Scan to Pay QR">
+
+    <form action="/register" method="POST" enctype="multipart/form-data">
+      <input type="text" name="uid" placeholder="Enter your Free Fire UID" required><br>
+      <input type="text" name="playerName" placeholder="Enter your in-game name" required><br>
+      <p>AFTER PAYMENT IS DONE, UPLOAD THE SCREENSHOT BELOW 👇</p>
+      <input type="file" name="screenshot" accept="image/*" required><br>
+      <button type="submit">Submit</button>
+    </form>
+
+    <p class="note">Note: If the custom room is not filled by players, the money will be refunded. ✅</p>
+
+    <div class="social-icons">
+      <a href="https://www.instagram.com/himashooo/?next=%2Finsatgrambycg%2F" target="_blank">
+        <img src="/assets/instagram.png" alt="Instagram">
+      </a>
+      <a href="https://chat.whatsapp.com/JbbYbDISNOsAZ2mTYMC279" target="_blank">
+        <img src="/assets/whatsapp.png" alt="WhatsApp">
+      </a>
+    </div>
+    
+  </div>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
+
